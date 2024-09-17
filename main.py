@@ -16,6 +16,14 @@ record_patient = {
         'appointment': [],
         'diagnosa': [],
         'harga': 0
+    }, 
+    2: {
+        'Username' : 'Ginting',
+        'insurance' : 'Swasta',
+        'obat': [],
+        'appointment': [],
+        'diagnosa': [],
+        'harga': 0
     }   
 }
 

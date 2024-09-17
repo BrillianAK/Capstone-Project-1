@@ -10,3 +10,7 @@
 
 ### Patient
 - 
+
+# Flowchart
+## 1. Main menu
+![Main Menu](https://github.com/BrillianAK/Capstone-Project-1/blob/main/Flowchart/Main%20Menu.png)

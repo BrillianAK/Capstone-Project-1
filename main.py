@@ -1,122 +1,72 @@
 import os
+import time
+from menu import *
+from patient import *
+from doctor import *
+from admin import *
+from data import *
 
-#! lambda, filter, map
-
-user = {
-    'Admin': [['Admin', 'Admin123']],
-    'Doctor': [['Robert', 'Robert123'], ['Ginting', 'Ginting123']],
-    'Patient': [['Putri', 'Putri123']],
-}
-
-record_patient = {
-    1: {
-        'Username' : 'Robert',
-        'insurance' : 'BPJS',
-        'obat': [],
-        'appointment': [],
-        'diagnosa': [],
-        'harga': 0
-    }, 
-    2: {
-        'Username' : 'Ginting',
-        'insurance' : 'Swasta',
-        'obat': [],
-        'appointment': [],
-        'diagnosa': [],
-        'harga': 0
-    }   
-}
-
-record_doctor = {
-
-}
-
-appointment = 'a'
-diagnosa = 'c'
-harga_obat = {'ada': 'sda'}
-
-def Login(username, password):
-    for i in user['Patient']:
-        if username == i[0]:
-            if password == i[1]:
-                return i[2], 'Patient'
-    for j in user['Doctor']:    
-        if username == j[0]:
-            if password == j[1]:
-                return j[2], 'Doctor'
-    for k in user['Admin']:    
-        if username == k[0]:
-            if password == k[1]:
-                return k[2], 'Admin'
-
-def Admin():
-    pass
-
-def Doctor():
-    pass
-
-def Patient():
-    pass
-
-#! Create
-def Register(email, password, username, role):
-    for role_users in user.values():
-        for user_info in role_users:
-            if user_info[0] == email:
-                return 0 
-    if role in user:
-        user[role].append([email, password, username])
-    else:
-        user[role] = [[email, password, username]] 
-    return 1 
-
-#! Read
-def Read():
-    pass
-
-#! Update
-def Update():
-    pass
-
-#! Delete
-def Delete():
-    pass
+#! lambda, filter, map, {}
 
 while True:
     print("""
 === Welcome to Purwadhika Hospital ===
 1. Login
 2. Register
+3. Reset Password
 0. Exit
 """)
     Menu = int(input("Select the menu: "))
     match Menu:
+
         case 1:
             while True:
-                try:
-                    username, password = input('Username: '), input('Password: ')
-                    name, role = (Login(username, password))
-                    if name and role:
-                        break
-                except:
-                    os.system('clear')
-                    print('Wrong Username or Password')
+                name, role = (Login(input('Username: ').title(), input('Password: '), user))
+                if name and role:
+                    break
+                print('Wrong Username or Password')
+                time.sleep(1); os.system('clear')
+
             if role == 'Admin':
-                pass
+                print('Login Successfully!!!')
+                time.sleep(1); os.system('clear')
+                Admin(record_patient)
+
             elif role == 'Doctor':
                 pass
+            
             else:
                 pass
+
         case 2:
             while True:
-                if Register(input('Email: '), input('Password: '), input('Username: '), input('Role (Doctor/Patient): ')) == 1:
-                    print('Registration successful!')
+                username = input('Username: ').title()
+                if Check_username(username, user):
+                    password = input('Password: ')
+                    while True:
+                        role = input('Role (Doctor/Patient): ').title()
+                        if role in ['Doctor', 'Patient']:
+                            break
+                        print('Choose Doctor or Patient')
+
+                    if Register(username, password, role, user) == 1:
+                        print('Registration successful!')
+                        time.sleep(1)
+                        os.system('clear')
                     break
+
                 else:
-                    print('Email already exists!')
+                    print('Username already exists!')
+                    time.sleep(1); os.system('clear')
+
+        case 3:
+            pass
+
         case 0:
+            os.system('clear')
             print('Thank You!')
             break
+
         case _:
             print('Wrong Number')
-            os.system('clear')
+            time.sleep(1); os.system('clear')

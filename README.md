@@ -24,7 +24,7 @@
 
 ## 3. Doctor
 <div align="center">
-  <img src="https://github.com/BrillianAK/Capstone-Project-1/blob/main/Flowchart/Doctor.png" alt="Main Menu" width="50%" />
+  <img src="https://github.com/BrillianAK/Capstone-Project-1/blob/main/Flowchart/Doctor%20Menu.png" alt="Main Menu" width="50%" />
 </div>
 
 ## 4. Patient

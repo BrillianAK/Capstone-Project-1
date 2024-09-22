@@ -14,9 +14,17 @@ def Check_username(username, user):
 
 #! Create
 def Register(username, password, role, user):
-    user[role].append([username, password])
+    if role == 'Doctor':
+        user[role].append([username, password, input('Enter your specialist: ')])
+    else:
+        user[role].append([username, password])
     return 1 
 
 #! Update 
-def Reset_password(username, old_pass, new_pass):
-    pass
+def Reset_password(username, old_pass, new_pass, user):
+    for role_users in user.keys():
+        for i, value in enumerate(user[role_users]):
+            if value[0] == username and value[1] == old_pass:
+                user[role_users][i][1] = new_pass
+                return True
+    return False

@@ -1,12 +1,14 @@
+# library for support the display
 import os
 import time
+
 from menu import *
 from patient import *
 from doctor import *
 from admin import *
 from data import *
 
-#! lambda, filter, map, {}
+#! lambda, filter, map
 
 while True:
     print("""
@@ -16,21 +18,22 @@ while True:
 3. Reset Password
 0. Exit
 """)
-    Menu = int(input("Select the menu: "))
+    Menu = input("Select the menu: ")
     match Menu:
 
-        case 1:
+        case '1':
+            os.system('clear')
             while True:
-                name, role = (Login(input('Username: ').title(), input('Password: '), user))
+                name, role = Login(input('Username: ').title(), input('Password: '), user)
                 if name and role:
+                    print('Login Successfully!!!')
+                    time.sleep(1); os.system('clear')
                     break
                 print('Wrong Username or Password')
                 time.sleep(1); os.system('clear')
 
             if role == 'Admin':
-                print('Login Successfully!!!')
-                time.sleep(1); os.system('clear')
-                Admin(record_patient)
+                Admin(record_patient, medicine, user, doctor_schedule)
 
             elif role == 'Doctor':
                 pass
@@ -38,7 +41,8 @@ while True:
             else:
                 pass
 
-        case 2:
+        case '2':
+            os.system('clear')
             while True:
                 username = input('Username: ').title()
                 if Check_username(username, user):
@@ -51,18 +55,25 @@ while True:
 
                     if Register(username, password, role, user) == 1:
                         print('Registration successful!')
-                        time.sleep(1)
-                        os.system('clear')
+                        time.sleep(1); os.system('clear')
                     break
 
                 else:
                     print('Username already exists!')
                     time.sleep(1); os.system('clear')
 
-        case 3:
-            pass
+        case '3':
+            os.system('clear')
+            while True:
+                if Reset_password(input('Username: ').title(), input('Old Password: '), input('New Password: '), user):
+                    print('Password reset successful!')
+                    time.sleep(1); os.system('clear')
+                    break 
+                else:
+                    print('Wrong Username or Password')
+                    time.sleep(1); os.system('clear')
 
-        case 0:
+        case '0':
             os.system('clear')
             print('Thank You!')
             break

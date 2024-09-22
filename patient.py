@@ -70,7 +70,7 @@ def Show_medical_record(current, record_patient):
 
 def Patient(current, doctor_schedule, record_patient, medicine, user):
     while True:
-        print("""Patient Menu
+        print("""=== Patient Menu ===
 1. Make Appointmet
 2. Show medical record
 0. Log Out

@@ -16,8 +16,7 @@ while True:
 3. Reset Password
 0. Exit
 """)
-    Menu = input("Select the menu: ")
-    match Menu:
+    match input("Select the menu: "):
 
         case '1':
             os.system('clear')

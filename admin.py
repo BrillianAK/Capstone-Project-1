@@ -19,7 +19,7 @@ def Add_medicine(medicine):
 #! Read
 def Medical_record(data):
     os.system('clear')
-    print(f"{'ID':<5} {'Username':<10} {'Appointment':<15} {'Doctor':<10} {'Diagnosa':<15} {'Medicine':<30}")
+    print(f"{'ID':<5} {'Name':<10} {'Appointment':<15} {'Doctor':<10} {'Diagnosa':<15} {'Medicine':<30}")
     print("-" * 100)
 
     for key, details in data.items():
@@ -29,7 +29,7 @@ def Medical_record(data):
         else:
             medicine = "N/A"
         
-        print(f"{str(key)[:5]:<5} {details['Username'][:10]:<10} {details['Appointment'][:15]:<15} {details['Doctor'][:10]:<10} {diagnosa[:15]:<15} {medicine[:30]:<30}")
+        print(f"{str(key)[:5]:<5} {details['Name'][:10]:<10} {details['Appointment'][:15]:<15} {details['Doctor'][:10]:<10} {diagnosa[:15]:<15} {medicine[:30]:<30}")
     print()
 
 def Show_medicine_stock(data):
@@ -45,7 +45,7 @@ def Show_medicine_stock(data):
 
 def Show_user(data):
     os.system('clear')
-    print(f"{'No.'[:3]:<3} {'Username'[:10]:<10} {'password'[:10]:<10} {'role'[:10]:<10}")
+    print(f"{'No.'[:3]:<3} {'Name'[:10]:<10} {'password'[:10]:<10} {'role'[:10]:<10}")
     print("-" * 40)
 
     i=1
@@ -57,9 +57,9 @@ def Show_user(data):
 
 #! Update
 def Update_medicine(name, amount, medicine):
-    print(f'{name} already added from {medicine.get(name, 0)} to {medicine.get(name, 0) + amount}')
+    print(f'{name} already added from {medicine.get(name, 0)} + {amount} = {medicine.get(name, 0) + amount}')
     medicine[name] = medicine.get(name) + amount
-    time.sleep(1); os.system('clear')
+    time.sleep(2); os.system('clear')
     return 1
 
 #! Delete
@@ -84,7 +84,7 @@ def Delete_user(name, data, doctor_schedule):
 
 def Admin(record_patient, medicine, user, doctor_schedule):
     while True:
-        print("""Admin Menu
+        print("""=== Admin Menu ===
 1. Show Medical Record
 2. Show Medicine Stock
 3. Add Medicine
@@ -92,16 +92,17 @@ def Admin(record_patient, medicine, user, doctor_schedule):
 5. Delete Medicine
 8. Show User
 9. Delete User
-0. Log out
+0. Log Out
 """)
-        match int(input('Select Menu: ')):
-            case 1:
+        match input('Select Menu: '):
+            case '1':
                 Medical_record(record_patient)
-            case 2:
+            case '2':
                 Show_medicine_stock(medicine)
-            case 3:
+            case '3':
+                Show_medicine_stock(medicine)
                 Add_medicine(medicine)
-            case 4:
+            case '4':
                 while True:
                     Show_medicine_stock(medicine)
                     medicine_name = input('Input Medicine: ').title()
@@ -115,7 +116,7 @@ def Admin(record_patient, medicine, user, doctor_schedule):
                         print(f'There no {medicine_name} in stock')
                         time.sleep(1); os.system('clear')
 
-            case 5:
+            case '5':
                 while True:
                     Show_medicine_stock(medicine)
                     med_name = input('Enter medicine name: ').title()
@@ -126,10 +127,10 @@ def Admin(record_patient, medicine, user, doctor_schedule):
                         print(f"{med_name} not in stock")
                         time.sleep(1); os.system('clear')
 
-            case 8:
+            case '8':
                 Show_user(user)
 
-            case 9:
+            case '9':
                 while True:
                     name = input('Enter name of user: ')
                     if Delete_user(name, user, doctor_schedule):
@@ -140,6 +141,10 @@ def Admin(record_patient, medicine, user, doctor_schedule):
                         print(f'There no {name} in user')
                         time.sleep(1); os.system('clear')
 
-            case 0:
+            case '0':
                 os.system('clear')
                 break
+
+            case _:
+                print('Wrong Number')
+                time.sleep(1); os.system('clear')

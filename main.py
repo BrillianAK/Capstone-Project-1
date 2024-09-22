@@ -8,8 +8,6 @@ from doctor import *
 from admin import *
 from data import *
 
-#! lambda, filter, map
-
 while True:
     print("""
 === Welcome to Purwadhika Hospital ===
@@ -36,10 +34,10 @@ while True:
                 Admin(record_patient, medicine, user, doctor_schedule)
 
             elif role == 'Doctor':
-                pass
+                Doctor(name, doctor_schedule, record_patient, medicine)
             
             else:
-                pass
+                Patient(name, doctor_schedule, record_patient, medicine, user)
 
         case '2':
             os.system('clear')

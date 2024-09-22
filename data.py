@@ -1,23 +1,23 @@
 user = {
     'Admin': [['Admin', 'Admin123']],
     'Doctor': [['Robert', 'Robert123', 'General Practitioners'], ['Ginting', 'Ginting123', 'Dermatologist']],
-    'Patient': [['Putri', 'Putri123']],
+    'Patient': [['Putri', 'Putri123'], ['Putra', 'Putra123']],
 }
 
 record_patient = {
     1: {
-        'Username' : 'Putri',
+        'Name' : 'Putri',
         'Appointment': '14:00 - 15:00',
         'Doctor': 'Robert',
         'Diagnosa': 'Sakit perut',
         'Medicine': {'paracetamol': 1, 'betadine': 1},
     }, 
     2: {
-        'Username' : 'Putra',
+        'Name' : 'Putra',
         'Appointment': '12:00 - 13:00',
         'Doctor': 'Ginting',
         'Diagnosa': None,
-        'Medicine': None,
+        'Medicine': {},
     }   
 }
 

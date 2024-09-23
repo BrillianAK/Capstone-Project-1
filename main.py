@@ -2,11 +2,11 @@
 import os
 import time
 
-from menu import *
-from patient import *
-from doctor import *
-from admin import *
-from data import *
+from Function.menu import *
+from Function.patient import *
+from Function.doctor import *
+from Function.admin import *
+from Data.data import *
 
 #! Filtering, sorting
 

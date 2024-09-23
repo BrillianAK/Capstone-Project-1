@@ -2,7 +2,7 @@
 import os
 import time
 
-from admin import Show_medicine_stock
+from Function.admin import Show_medicine_stock
 
 #! Create
 def Create_schedule(current, start, end, doctor_schedule):

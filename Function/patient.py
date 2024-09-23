@@ -2,7 +2,7 @@
 import os
 import time
 
-from doctor import Read_schedule
+from Function.doctor import Read_schedule
 
 #! Create
 def Make_appointmet(current, doctor_schedule, record_patient, user):

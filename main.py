@@ -5,7 +5,7 @@ import time
 from Function.menu import *
 from Function.patient import *
 from Function.doctor import *
-from Function.admin import *
+from Function.admin import *    
 from Data.data import *
 
 #! Filtering, sorting

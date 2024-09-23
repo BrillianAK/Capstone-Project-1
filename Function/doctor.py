@@ -43,9 +43,8 @@ def Show_medical_record_update(current, record_patient):
     for key, value in record_patient.items():
         value = list(value.values())
         if value[2] == current:
-            if value[3] == None:
-                print(f"{str(key)[:5]:^5} {value[1][:15]:<15} {value[0][:10]:<10}")
-                key_list.append(key)
+            print(f"{str(key)[:5]:^5} {value[1][:15]:<15} {value[0][:10]:<10}")
+            key_list.append(key)
     print()
     return key_list
 
@@ -70,13 +69,13 @@ def update_patient_record(current, record_patient, medicine):
 
 def medicine_for_patient(index, record_patient, medicine):
     while True:
-        Show_medicine_stock(medicine)
-        medicine_name = input("Select medicine for patient: ").title()
+        Show_medicine_stock(medicine, 'Doctor')
+        medicine_name = input("Input medicine name for patient: ").title()
         if medicine_name in medicine.keys():
             medicine_amount = int(input("How much: "))
             
             if medicine_amount <= medicine[medicine_name]:
-                record_patient[index]['Medicine'][medicine_name] = medicine_amount
+                record_patient[index]['Medicine'][medicine_name] = record_patient[index]['Medicine'].get(medicine_name, 0) + medicine_amount
                 medicine[medicine_name] -= medicine_amount
             else:
                 print(f"Only {medicine[medicine_name]} units of {medicine_name} left, but you requested {medicine_amount}.")

@@ -32,15 +32,19 @@ def Medical_record(data):
         print(f"{str(key)[:5]:<5} {details['Name'][:10]:<10} {details['Appointment'][:15]:<15} {details['Doctor'][:10]:<10} {diagnosa[:15]:<15} {medicine[:30]:<30}")
     print()
 
-def Show_medicine_stock(data):
+def Show_medicine_stock(data, role='admin'):
     os.system('cls' if os.name == 'nt' else 'clear')
     print(f"{'No.':<3} {'Name':<15} {'Stock':<5}")
     print("-" * 25)
 
-    i=1
-    for key, value in data.items():
-        print(f"{str(i)[:3]:<3} {key[:15]:<15} {str(value)[:5]:<5}")
-        i+=1
+    sorted_data = {key: data[key] for key in sorted(data)}
+
+    if role == 'Doctor':
+        sorted_data = dict(filter(lambda item: item[1] != 0, sorted_data.items()))
+
+    for i, (key, value) in enumerate(sorted_data.items(), start=1):
+        print(f"{i:<3} {key[:15]:<15} {value:<5}")
+    
     print()
 
 def Show_user(data):
@@ -48,11 +52,9 @@ def Show_user(data):
     print(f"{'No.'[:3]:<3} {'Name'[:10]:<10} {'password'[:10]:<10} {'role'[:10]:<10}")
     print("-" * 40)
 
-    i=1
-    for key, value in data.items():
+    for i, (key, value) in enumerate(data.items(), start=1):
         for value_list in value:
             print(f"{str(i)[:3]:<3} {value_list[0][:10]:<10} {len(value_list[1])*'*'[:10]:<10} {key[:10]:<10}")
-            i+=1
     print()
 
 #! Update

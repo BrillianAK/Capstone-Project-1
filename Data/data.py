@@ -25,7 +25,7 @@ medicine = {
     'Paracetamol': 10,
     'Antibiotik': 15,
     'Antivirus': 12,
-    'Betadine': 17
+    'Betadine': 0
 }
 
 doctor_schedule = {

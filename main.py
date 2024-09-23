@@ -8,6 +8,8 @@ from doctor import *
 from admin import *
 from data import *
 
+#! Filtering, sorting
+
 while True:
     print("""
 === Welcome to Purwadhika Hospital ===
@@ -23,11 +25,7 @@ while True:
             while True:
                 name, role = Login(input('Username: ').title(), input('Password: '), user)
                 if name and role:
-                    print('Login Successfully!!!')
-                    time.sleep(1); os.system('clear')
                     break
-                print('Wrong Username or Password')
-                time.sleep(1); os.system('clear')
 
             if role == 'Admin':
                 Admin(record_patient, medicine, user, doctor_schedule)
@@ -63,12 +61,7 @@ while True:
             os.system('clear')
             while True:
                 if Reset_password(input('Username: ').title(), input('Old Password: '), input('New Password: '), user):
-                    print('Password reset successful!')
-                    time.sleep(1); os.system('clear')
                     break 
-                else:
-                    print('Wrong Username or Password')
-                    time.sleep(1); os.system('clear')
 
         case '0':
             os.system('clear')

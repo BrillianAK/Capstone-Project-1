@@ -59,6 +59,7 @@ def Show_medical_record(current, record_patient):
     else:
         print('There no your record in our data')
 
+#? Not enough time for explain :D
 # #! Update
 # def Change_appointment_schedule():
 #     pass

@@ -82,6 +82,7 @@ def Delete_user(name, data, doctor_schedule):
             i+=1
     return 0
 
+#! Main
 def Admin(record_patient, medicine, user, doctor_schedule):
     while True:
         print("""=== Admin Menu ===

@@ -24,7 +24,7 @@ def Make_appointmet(current, doctor_schedule, record_patient, user):
                     time.sleep(1)
                 else:
                     record_patient[len(record_patient)+1] = {
-                                'Username' : current,
+                                'Name' : current,
                                 'Appointment': list(doctor_schedule[doctor_name].keys())[selected_number-1],
                                 'Doctor': doctor_name,
                                 'Diagnosa': None,

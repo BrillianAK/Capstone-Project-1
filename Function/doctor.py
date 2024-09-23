@@ -12,7 +12,7 @@ def Create_schedule(current, start, end, doctor_schedule):
                 if i >= 10:
                     doctor_schedule[current][f'{i}:00 - {i+1}:00'] = None
                 elif i == 9:
-                    doctor_schedule[current][f'{i}:00 - {i+1}:00'] = None
+                    doctor_schedule[current][f'0{i}:00 - {i+1}:00'] = None
                 else:
                     doctor_schedule[current][f'0{i}:00 - 0{i+1}:00'] = None
 
@@ -93,7 +93,7 @@ def medicine_for_patient(index, record_patient, medicine):
 #! Delete
 def Delete_schedule(current, index, doctor_schedule):
     try:
-        del doctor_schedule[current][list(doctor_schedule['Ginting'].keys())[index]]
+        del doctor_schedule[current][list(doctor_schedule['Ginting'].keys())[index-1]]
         return 1
     except:
         return 0

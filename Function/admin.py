@@ -8,17 +8,17 @@ def Add_medicine(medicine):
     if medicine_name not in medicine.keys():
         medicine[medicine_name] = int(input('amount: '))
         print(f'{medicine_name} added in stock')
-        time.sleep(1); os.system('clear')
+        time.sleep(1); os.system('cls' if os.name == 'nt' else 'clear')
     else:
         print("You can't create same medicine name")
-        time.sleep(1); os.system('clear')
+        time.sleep(1); os.system('cls' if os.name == 'nt' else 'clear')
         print(f'=== Update {medicine_name} ===')
         print(f'right now {medicine_name} = {medicine[medicine_name]}')
         Update_medicine(medicine_name, int(input('Add stock: ')), medicine)
 
 #! Read
 def Medical_record(data):
-    os.system('clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
     print(f"{'ID':<5} {'Name':<10} {'Appointment':<15} {'Doctor':<10} {'Diagnosa':<15} {'Medicine':<30}")
     print("-" * 100)
 
@@ -33,7 +33,7 @@ def Medical_record(data):
     print()
 
 def Show_medicine_stock(data):
-    os.system('clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
     print(f"{'No.':<3} {'Name':<15} {'Stock':<5}")
     print("-" * 25)
 
@@ -44,7 +44,7 @@ def Show_medicine_stock(data):
     print()
 
 def Show_user(data):
-    os.system('clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
     print(f"{'No.'[:3]:<3} {'Name'[:10]:<10} {'password'[:10]:<10} {'role'[:10]:<10}")
     print("-" * 40)
 
@@ -59,7 +59,7 @@ def Show_user(data):
 def Update_medicine(name, amount, medicine):
     print(f'{name} already added from {medicine.get(name, 0)} + {amount} = {medicine.get(name, 0) + amount}')
     medicine[name] = medicine.get(name) + amount
-    time.sleep(2); os.system('clear')
+    time.sleep(2); os.system('cls' if os.name == 'nt' else 'clear')
     return 1
 
 #! Delete
@@ -115,18 +115,18 @@ def Admin(record_patient, medicine, user, doctor_schedule):
                             break
                     else:
                         print(f'There no {medicine_name} in stock')
-                        time.sleep(1); os.system('clear')
+                        time.sleep(1); os.system('cls' if os.name == 'nt' else 'clear')
 
             case '5':
                 while True:
                     Show_medicine_stock(medicine)
                     med_name = input('Enter medicine name: ').title()
                     if Delete_medicine(med_name, medicine):
-                        time.sleep(1); os.system('clear')
+                        time.sleep(1); os.system('cls' if os.name == 'nt' else 'clear')
                         break
                     else:
                         print(f"{med_name} not in stock")
-                        time.sleep(1); os.system('clear')
+                        time.sleep(1); os.system('cls' if os.name == 'nt' else 'clear')
 
             case '8':
                 Show_user(user)
@@ -136,16 +136,16 @@ def Admin(record_patient, medicine, user, doctor_schedule):
                     name = input('Enter name of user: ')
                     if Delete_user(name, user, doctor_schedule):
                         print(f'{name} deleted')
-                        time.sleep(1); os.system('clear')
+                        time.sleep(1); os.system('cls' if os.name == 'nt' else 'clear')
                         break
                     else:
                         print(f'There no {name} in user')
-                        time.sleep(1); os.system('clear')
+                        time.sleep(1); os.system('cls' if os.name == 'nt' else 'clear')
 
             case '0':
-                os.system('clear')
+                os.system('cls' if os.name == 'nt' else 'clear')
                 break
 
             case _:
                 print('Wrong Number')
-                time.sleep(1); os.system('clear')
+                time.sleep(1); os.system('cls' if os.name == 'nt' else 'clear')

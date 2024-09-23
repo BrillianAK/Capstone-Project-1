@@ -36,12 +36,12 @@ def Make_appointmet(current, doctor_schedule, record_patient, user):
 
         else:
             print(f'There is no {doctor_name} in our hospital')
-            time.sleep(1); os.system('clear')
+            time.sleep(1); os.system('cls' if os.name == 'nt' else 'clear')
     
 
 #! Read
 def Show_medical_record(current, record_patient):
-    os.system('clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
     if any(record['Name'] == current for record in record_patient.values()):
         print(f"{'ID':<5} {'Name':<10} {'Appointment':<15} {'Doctor':<10} {'Diagnosa':<15} {'Medicine':<30}")
         print("-" * 100)
@@ -78,7 +78,7 @@ def Patient(current, doctor_schedule, record_patient, medicine, user):
 """)
         match input('Select Menu: '):
             case '1':
-                time.sleep(1); os.system('clear')
+                time.sleep(1); os.system('cls' if os.name == 'nt' else 'clear')
                 Make_appointmet(current, doctor_schedule, record_patient, user)
             case '2':
                 Show_medical_record(current, record_patient)
@@ -88,9 +88,9 @@ def Patient(current, doctor_schedule, record_patient, medicine, user):
             #     pass
             
             case '0':
-                os.system('clear')
+                os.system('cls' if os.name == 'nt' else 'clear')
                 break
 
             case _:
                 print('Wrong Number')
-                time.sleep(1); os.system('clear')
+                time.sleep(1); os.system('cls' if os.name == 'nt' else 'clear')

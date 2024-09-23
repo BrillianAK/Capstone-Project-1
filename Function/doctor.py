@@ -18,7 +18,7 @@ def Create_schedule(current, start, end, doctor_schedule):
 
 #! Read
 def Read_schedule(current, doctor_schedule):
-    os.system('clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
     print(f"{'No.'[:3]:<3} {'Time'[:15]:<15} {'Condition'[:10]:<10}")
     print("-" * 30)
     
@@ -34,7 +34,7 @@ def Read_schedule(current, doctor_schedule):
 
 #! Update
 def Show_medical_record_update(current, record_patient):
-    os.system('clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
     print(f"{'Index'[:5]:<5} {'Time'[:15]:<15} {'Patient'[:15]:<15}")
     print("-" * 30)
     
@@ -63,9 +63,9 @@ def update_patient_record(current, record_patient, medicine):
             else:
                 print(f"No record found for index {index}")
         else:
-            os.system('clear')
+            os.system('cls' if os.name == 'nt' else 'clear')
             print('There no patient in your schedule')
-            time.sleep(1); os.system('clear')
+            time.sleep(1); os.system('cls' if os.name == 'nt' else 'clear')
             break
 
 def medicine_for_patient(index, record_patient, medicine):
@@ -86,7 +86,7 @@ def medicine_for_patient(index, record_patient, medicine):
         add_more = input("Add more medicine? (yes/no): ").lower()
         if add_more == 'no':
             print('Patient is updated')
-            time.sleep(1); os.system('clear')
+            time.sleep(1); os.system('cls' if os.name == 'nt' else 'clear')
             return 1
         elif add_more != 'yes':
             print("Wrong input!!!")
@@ -113,7 +113,7 @@ def Doctor(current, doctor_schedule, record_patient, medicine):
             case '1':
                 Create_schedule(current, int(input('From what time: ')), int(input('Until what time: ')), doctor_schedule)
                 print('New Schedule Created')
-                time.sleep(1); os.system('clear')
+                time.sleep(1); os.system('cls' if os.name == 'nt' else 'clear')
             case '2':
                 Read_schedule(current, doctor_schedule)
             case '3':
@@ -122,18 +122,18 @@ def Doctor(current, doctor_schedule, record_patient, medicine):
                     index = int(input('select number: '))
                     if Delete_schedule(current, index, doctor_schedule):
                         print('Delete Successfully')
-                        time.sleep(1); os.system('clear')
+                        time.sleep(1); os.system('cls' if os.name == 'nt' else 'clear')
                         break
                     else:
                         print('Wrong Input!!!')
-                        time.sleep(1); os.system('clear')
+                        time.sleep(1); os.system('cls' if os.name == 'nt' else 'clear')
             case '4': 
                 update_patient_record(current, record_patient, medicine)
             
             case '0':
-                os.system('clear')
+                os.system('cls' if os.name == 'nt' else 'clear')
                 break
 
             case _:
                 print('Wrong Number')
-                time.sleep(1); os.system('clear')
+                time.sleep(1); os.system('cls' if os.name == 'nt' else 'clear')

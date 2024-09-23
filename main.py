@@ -21,7 +21,7 @@ while True:
     match input("Select the menu: "):
 
         case '1':
-            os.system('clear')
+            os.system('cls' if os.name == 'nt' else 'clear')
             while True:
                 name, role = Login(input('Username: ').title(), input('Password: '), user)
                 if name and role:
@@ -37,7 +37,7 @@ while True:
                 Patient(name, doctor_schedule, record_patient, medicine, user)
 
         case '2':
-            os.system('clear')
+            os.system('cls' if os.name == 'nt' else 'clear')
             while True:
                 username = input('Username: ').title()
                 if Check_username(username, user):
@@ -50,24 +50,24 @@ while True:
 
                     if Register(username, password, role, user) == 1:
                         print('Registration successful!')
-                        time.sleep(1); os.system('clear')
+                        time.sleep(1); os.system('cls' if os.name == 'nt' else 'clear')
                     break
 
                 else:
                     print('Username already exists!')
-                    time.sleep(1); os.system('clear')
+                    time.sleep(1); os.system('cls' if os.name == 'nt' else 'clear')
 
         case '3':
-            os.system('clear')
+            os.system('cls' if os.name == 'nt' else 'clear')
             while True:
                 if Reset_password(input('Username: ').title(), input('Old Password: '), input('New Password: '), user):
                     break 
 
         case '0':
-            os.system('clear')
+            os.system('cls' if os.name == 'nt' else 'clear')
             print('Thank You!')
             break
 
         case _:
             print('Wrong Number')
-            time.sleep(1); os.system('clear')
+            time.sleep(1); os.system('cls' if os.name == 'nt' else 'clear')
